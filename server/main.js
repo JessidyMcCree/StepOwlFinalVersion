@@ -16,7 +16,7 @@ app.use(express.json())
 
 
 
-app.post("/inventory/add", (req, res) => {
+app.post("/addToInventory/add", (req, res) => {
     console.log("Recebido POST /inventory/add com corpo:", req.body);
     const { playerId, items } = req.body;
     if (!playerId || !items) return res.status(400).json({ error: "Missing playerId or items" });
