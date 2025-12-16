@@ -171,7 +171,7 @@ fun MainGameScreen(
                     if (unityIdInput.isNotBlank()) {
                         // Converte os itens do inventário para o formato ItemPayload
                         val itemsPayload = state.inventoryData.items.map { item ->
-                            ItemPayload(item.id.hashCode(), item.quantity)
+                            ItemPayload(item.name, item.quantity)
                         }
 
                         // Acede à função `sendInventoryToServer` através do contexto
