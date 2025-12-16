@@ -169,9 +169,9 @@ fun MainGameScreen(
             confirmButton = {
                 Button(onClick = {
                     if (unityIdInput.isNotBlank()) {
-                        // 1. Prepara os itens para envio
-                        val itemsPayload = state.inventoryData.items.map { item ->
-                            ItemPayload(id = item.id, quantity = item.quantity)
+                        // Converte os itens do inventário para o formato ItemPayload
+                        val itemsPayload = state.inventoryData.items.map {item ->
+                            ItemPayload( item.id.hashCode() ,item.quantity)
                         }
 
                         // 2. Envia os dados para o servidor
