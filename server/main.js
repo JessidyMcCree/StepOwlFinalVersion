@@ -32,7 +32,7 @@ app.post("/inventory/add", (req, res) => {
             }
         );
     });
-
+    console.log ("POST /inventory/add para playerId:", playerId, "com itens:", items);
     res.json({ success: true });
 });
 
