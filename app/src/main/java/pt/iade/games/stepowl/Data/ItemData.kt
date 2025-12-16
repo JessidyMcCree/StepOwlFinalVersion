@@ -16,10 +16,23 @@ enum class Rarity(val weight: Double, val label: String) {
 // mantemos isto simples (data class) para o kotlin tratar dos equals/hashcode por nós.
 data class ItemData(
     // gera um id único automaticamente
-    val id: String = UUID.randomUUID().toString(),
+    val id: Int,
     val name: String,
     val rarity: Rarity,
     // quantidade do item no inventário.
     // começamos com 1, mas permitimos empilhar
     var quantity: Int = 1
 )
+
+enum class Items(val itemName: String, val id: Int){
+    Pedra("Pedra", 0),
+    Graveto("Graveto", 1),
+    Migalha("Migalha", 2),
+    Folha("Folha", 3),
+    MapaVelho("Mapa Velho", 4),
+    Recibo("Recibo", 5),
+    BotaSuja("Bota Suja", 6),
+    AmuletoDePrata("Amuleto de Prata", 7),
+    Osso("Osso", 8),
+    CoroaDourada("Coroa Dourada", 9)
+}

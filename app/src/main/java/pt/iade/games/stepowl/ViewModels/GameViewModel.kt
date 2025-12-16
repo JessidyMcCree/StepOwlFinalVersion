@@ -175,11 +175,18 @@ class GameViewModel(application: Application) : AndroidViewModel(application) {
         val newQuests = mutableListOf<QuestData>()
         repeat(3) {
             val template = pickRandomQuestTemplate()
+            var itemId: Int = 0;
+            for (item in Items.values()) {
+                if (template.itemName == item.itemName) {
+                    itemId = item.id;
+                    break;
+                }
+            }
             newQuests.add(
                 QuestData(
                     description = template.description,
                     targetSteps = template.steps,
-                    rewardItem = ItemData(name = template.itemName, rarity = template.rarity),
+                    rewardItem = ItemData(name = template.itemName, id = itemId, rarity = template.rarity),
                     rarity = template.rarity
                 )
             )
@@ -256,7 +263,7 @@ class GameViewModel(application: Application) : AndroidViewModel(application) {
                     val obj = invArray.getJSONObject(i)
                     loadedItems.add(
                         ItemData(
-                            id = obj.getString("id"),
+                            id = obj.getInt("id"),
                             name = obj.getString("name"),
                             rarity = Rarity.valueOf(obj.getString("rarity")),
                             quantity = obj.optInt("quantity", 1) // recupera a quantidade ou assume 1
@@ -314,8 +321,17 @@ class GameViewModel(application: Application) : AndroidViewModel(application) {
 
     private fun jsonToQuest(obj: JSONObject): QuestData {
         val itemObj = obj.getJSONObject("rewardItem")
+
+        var itemId: Int = 0;
+        for (item in Items.values()) {
+            if (itemObj.getString("name") == item.itemName) {
+                itemId = item.id;
+                break;
+            }
+        }
+
         val reward = ItemData(
-            id = itemObj.getString("id"),
+            id = itemId,
             name = itemObj.getString("name"),
             rarity = Rarity.valueOf(itemObj.getString("rarity")),
             quantity = 1
