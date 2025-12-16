@@ -4,6 +4,7 @@ import android.app.Application
 import android.content.Context
 import android.content.SharedPreferences
 import android.util.Log
+import androidx.compose.animation.core.copy
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
@@ -328,5 +329,20 @@ class GameViewModel(application: Application) : AndroidViewModel(application) {
             isCompleted = obj.getBoolean("isCompleted"),
             rewardItem = reward
         )
+    }
+
+    fun clearInventory() {
+        // 1. Cria uma cópia do estado atual
+        val currentState = gameState
+
+        // 2. Cria uma cópia dos dados do inventário, mas com a lista de itens vazia
+        val clearedInventoryData = currentState.inventoryData.copy(items = emptyList())
+
+        // 3. Atribui um estado completamente novo ao 'gameState',
+        //    mantendo tudo o que estava antes, mas trocando os dados do inventário pelos novos (vazios).
+        gameState = currentState.copy(inventoryData = clearedInventoryData)
+
+        // 4. Salva o estado do jogo para persistir o inventário vazio.
+        saveGame()
     }
 }

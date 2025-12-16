@@ -169,16 +169,21 @@ fun MainGameScreen(
             confirmButton = {
                 Button(onClick = {
                     if (unityIdInput.isNotBlank()) {
-                        // Converte os itens do inventário para o formato ItemPayload
+                        // 1. Prepara os itens para envio
                         val itemsPayload = state.inventoryData.items.map { item ->
-                            ItemPayload(item.name, item.quantity)
+                            ItemPayload(id = item.id, quantity = item.quantity)
                         }
 
-                        // Acede à função `sendInventoryToServer` através do contexto
+                        // 2. Envia os dados para o servidor
                         (context as? MainActivity)?.sendInventoryToServer(unityIdInput, itemsPayload)
 
-                        showIdDialog = false // Fecha o diálogo
-                        Toast.makeText(context, "Inventário enviado!", Toast.LENGTH_SHORT).show()
+                        // 3. Limpa o inventário na app
+                        viewModel.clearInventory()
+
+                        // 4. Fecha o diálogo e avisa o utilizador que tudo correu bem
+                        showIdDialog = false
+                        Toast.makeText(context, "Inventário sincronizado!", Toast.LENGTH_LONG).show()
+
                     } else {
                         Toast.makeText(context, "Por favor, insere um ID.", Toast.LENGTH_SHORT).show()
                     }
