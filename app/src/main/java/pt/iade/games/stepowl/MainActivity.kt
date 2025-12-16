@@ -119,7 +119,7 @@ class MainActivity : ComponentActivity(), SensorEventListener {
     fun sendInventoryToServer(playerId: String, items: List<ItemPayload>) {
         if (items.isEmpty()) return
         val json = Gson().toJson( InventoryPayload(playerId, items))
-        "https://stepowl.onrender.com/inventory/add"
+        "https://stepowlfinalversion.onrender.com/inventory/add"
             .httpPost()
             .body (body = json)
             .header( "Content-Type" to "application/json")
