@@ -182,10 +182,10 @@ fun MainGameScreen(
 
                         // 4. Fecha o diálogo e avisa o utilizador que tudo correu bem
                         showIdDialog = false
-                        Toast.makeText(context, "Inventário sincronizado!", Toast.LENGTH_LONG).show()
+                        Toast.makeText(context, "Synchronised inventory!", Toast.LENGTH_LONG).show()
 
                     } else {
-                        Toast.makeText(context, "Por favor, insere um ID.", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, "Please insert an ID", Toast.LENGTH_SHORT).show()
                     }
                 }) {
                     Text("Enviar")
@@ -193,7 +193,7 @@ fun MainGameScreen(
             },
             dismissButton = {
                 Button(onClick = { showIdDialog = false }) {
-                    Text("Cancelar")
+                    Text("Cancel")
                 }
             }
         )

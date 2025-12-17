@@ -25,7 +25,7 @@ data class ItemData(
 )
 
 enum class Items(val itemName: String, val id: Int){
-    Pedra("Pedra", 0),
+    Dandelion("Dandelion", 8),
     Graveto("Graveto", 1),
     Migalha("Migalha", 2),
     Folha("Folha", 3),
@@ -33,6 +33,6 @@ enum class Items(val itemName: String, val id: Int){
     Recibo("Recibo", 5),
     BotaSuja("Bota Suja", 6),
     AmuletoDePrata("Amuleto de Prata", 7),
-    Osso("Osso", 8),
+    Osso("Osso", 0),
     CoroaDourada("Coroa Dourada", 9)
 }

@@ -13,7 +13,7 @@ object Quests {
     // ajusta-se aqui para balancear a economia do jogo
     val pool = listOf(
         // tier comum
-        QuestTemplate("Daily Stroll", 50, "Pedra", Rarity.COMMON),
+        QuestTemplate("Daily Stroll", 50, "Dandelion", Rarity.COMMON),
         QuestTemplate("Find the Herbs!", 50, "Graveto", Rarity.COMMON),
         QuestTemplate("Get the Bread!", 50, "Migalha", Rarity.COMMON),
         QuestTemplate("A walk in the Park!", 50, "Folha", Rarity.COMMON),
