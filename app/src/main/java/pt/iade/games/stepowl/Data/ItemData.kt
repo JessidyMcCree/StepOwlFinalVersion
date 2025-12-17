@@ -26,13 +26,12 @@ data class ItemData(
 
 enum class Items(val itemName: String, val id: Int){
     Dandelion("Dandelion", 8),
-    Graveto("Graveto", 1),
-    Migalha("Migalha", 2),
-    Folha("Folha", 3),
-    MapaVelho("Mapa Velho", 4),
-    Recibo("Recibo", 5),
-    BotaSuja("Bota Suja", 6),
-    AmuletoDePrata("Amuleto de Prata", 7),
-    Osso("Osso", 0),
-    CoroaDourada("Coroa Dourada", 9)
+    WhiteLily("White Lily", 14),
+    Sunflower("Sunflower", 13),
+    CrystalPurple("Crystal Purple", 7),
+    Rose("Rose", 12),
+    Peal("Pearl", 11),
+    GoldDust("Gold Dust", 10),
+    FairyDust("Fairy Dust", 9)
+
 }

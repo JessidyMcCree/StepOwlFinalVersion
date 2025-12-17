@@ -14,21 +14,23 @@ object Quests {
     val pool = listOf(
         // tier comum
         QuestTemplate("Daily Stroll", 50, "Dandelion", Rarity.COMMON),
-        QuestTemplate("Find the Herbs!", 50, "Graveto", Rarity.COMMON),
-        QuestTemplate("Get the Bread!", 50, "Migalha", Rarity.COMMON),
-        QuestTemplate("A walk in the Park!", 50, "Folha", Rarity.COMMON),
+        QuestTemplate("Find the Herbs!", 50, "White Lily", Rarity.COMMON),//White Lily
+        QuestTemplate("A walk in the Park!!", 50, "Sunflower", Rarity.COMMON),//
+
 
         // tier incomum
-        QuestTemplate("Urban Explorer", 100, "Mapa Velho", Rarity.UNCOMMON),
-        QuestTemplate("Lets go Shopping!", 100, "Recibo", Rarity.UNCOMMON),
-        QuestTemplate("Go up the hill!", 100, "Bota Suja", Rarity.UNCOMMON),
+       // QuestTemplate("Urban Explorer", 100, "Mapa Velho", Rarity.UNCOMMON),
+       // QuestTemplate("Lets go Shopping!", 100, "Recibo", Rarity.UNCOMMON),
+       // QuestTemplate("Go up the hill!", 100, "Bota Suja", Rarity.UNCOMMON),
 
         // tier raro
-        QuestTemplate("Spy on the enemies!", 500, "Amuleto de Prata", Rarity.RARE),
-        QuestTemplate("Run from the Dogs!", 500, "Osso", Rarity.RARE),
+        QuestTemplate("Go Mining!", 500, "Crystal Purple", Rarity.RARE),
+        QuestTemplate("Pick some Flowers!", 500, "Rose", Rarity.RARE),
+        QuestTemplate("Lets go fishing!", 500, "Pearl", Rarity.RARE),
+
 
         // tier lendário
-        QuestTemplate("Rob the Fairy!", 1000, "Coroa Dourada", Rarity.LEGENDARY),
-        QuestTemplate("THE NELIO QUEST! Get the gold Dust!", 10000, "Coroa Dourada", Rarity.LEGENDARY)
+        QuestTemplate("Rob the Fairy!", 1000, "Fairy Dust", Rarity.LEGENDARY),
+        QuestTemplate("THE NELIO QUEST! Get the gold Dust!", 10000, "Gold Dust", Rarity.LEGENDARY)
     )
 }
