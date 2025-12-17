@@ -24,7 +24,7 @@ app.post("/addToInventory/add", (req, res) => {
     items.forEach(item => {
         connection.query(
             `INSERT INTO inventory (playerId, itemId, quantity) VALUES (?, ?, ?)
-             ON DUPLICATE KEY UPDATE quantity = quantity + ?`,
+             ON DUPLICATE KEY UPDATE quantity =  ?`,
             [playerId, item.itemId, item.quantity, item.quantity],
             (err, result) => {
                 if (err) {

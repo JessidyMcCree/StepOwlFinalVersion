@@ -123,7 +123,7 @@ class MainActivity : ComponentActivity(), SensorEventListener {
             .httpPost()
             .body (body = json)
             .header( "Content-Type" to "application/json")
-           .response { _, _, result ->
+            .response { _, _, result ->
               result.fold(
                 success = { data -> Log.i(  "INVENTORY",  "Server response: ${String (bytes = data)}") },
                 failure = { error -> Log.e( "INVENTORY",  "Error: ${error.message}") }
