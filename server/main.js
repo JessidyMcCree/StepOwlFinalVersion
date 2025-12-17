@@ -17,27 +17,24 @@ app.use(express.json())
 
 
 app.post("/addToInventory/add", (req, res) => {
+    console.log("Recebido POST /inventory/add com corpo:", req.body);
     const { playerId, items } = req.body;
     if (!playerId || !items) return res.status(400).json({ error: "Missing playerId or items" });
 
-    connection.query("DELETE FROM inventory WHERE playerId = ?", [playerId], (err) => {
-        if (err) {
-            console.error("Erro ao limpar inventário:", err);
-            return res.status(500).json({ error: err.message });
-        }
-
-        items.forEach(item => {
-            connection.query(
-                "INSERT INTO inventory (playerId, itemId, quantity) VALUES (?, ?, ?)",
-                [playerId, item.itemId, item.quantity],
-                (err, result) => {
-                    if (err) console.error("Erro no INSERT:", err);
+    items.forEach(item => {
+        connection.query(
+            `INSERT INTO inventory (playerId, itemId, quantity) VALUES (?, ?, ?)
+             ON DUPLICATE KEY UPDATE quantity =  ?`,
+            [playerId, item.itemId, item.quantity, item.quantity],
+            (err, result) => {
+                if (err) {
+                    console.error("Erro no INSERT:", err);
                 }
-            );
-        });
-
-        res.json({ success: true });
+            }
+        );
     });
+    console.log ("POST /inventory/add para playerId:", playerId, "com itens:", items);
+    res.json({ success: true });
 });
 
 app.get("/inventory/:playerId", (req, res) => {
